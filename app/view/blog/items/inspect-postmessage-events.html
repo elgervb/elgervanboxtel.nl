@@ -1,0 +1,80 @@
+<div class="snippet">
+  <h1> Inspect postMessage </h1>
+  
+  <p>
+  	Log postMessage events to your browser console and be able to inspect the event. Copy past following code into the console of you favorite browser and execute it, or append it to your page. Afterwards all postMessage events will be logged to your browser console.
+  </p>
+
+  <p>Event listeners for the <code>message</code> events will be applied recursively. <em>All</em> iframes (even iframe in iframe in iframe, etc) will log the events triggered by postMessage to the console. After initialisation a log will state how many iframe were recursively found in the current document.</p>
+
+  <p>
+  	When using FireFox in combination with Firebug, it will look something like this:
+  </p>
+
+  <p>
+  	As you can see, both the target window as the originating window are logged. You can also inspect full event details by clicking on the final logged object.
+  </p>
+
+   <p>
+  	<img src="{siteurl}/static/img/snippets/javascript/postmessage.png" alt="Screenshot PostMessage in FireBug" />
+  </p>
+
+<pre class="spacer"><code class="javascript">var listener = function(e){
+  console.log('Caught ',e.type,' event from ',e.source.self, ' to ', e.target, ' origin ', e.origin, ' with data ', e.data, '. Full details: ', e);
+};
+
+function addToFrame(el){
+  var frames = el.querySelectorAll('iframe'),
+      ifrm = 0;
+  for (var i=0; i&lt;frames.length; i++){
+   frames[i].contentWindow.addEventListener("message",listener, true);
+   ifrm += addToFrame(frames[i].contentWindow.document);
+  }
+  return i + ifrm;
+}
+
+window.addEventListener("message",listener, true);
+var c = addToFrame(document);
+console.log('Recursively added listener to main window and', c, 'frames');
+</code></pre>
+
+
+	<h2> Demo </h2>
+
+	<p>
+		<input type="text" class="input message" value="My Message" />
+		<a href="#" id="send-message" class="btn-flat-blue">Send message</a>
+	</p>
+
+	<p>Watch the console ;-)</p>
+
+</div>
+
+	<script>
+		document.getElementById('send-message').addEventListener('click', function(e){
+			e.preventDefault();
+			window.postMessage(document.querySelector('.message').value, window.location.origin ); //
+		});
+
+		/*
+		 * The actual postMessage code 
+		 */
+		var listener = function(e){
+  console.log('Caught ',e.type,' event from ',e.source.self, ' to ', e.target, ' origin ', e.origin, ' with data ', e.data, '. Full details: ', e);
+};
+
+  function addToFrame(el){
+    var frames = el.querySelectorAll('iframe'),
+        ifrm = 0;
+    for (var i=0; i<frames.length; i++){
+     frames[i].contentWindow.addEventListener("message",listener, true);
+     ifrm += addToFrame(frames[i].contentWindow.document);
+    }
+    return i + ifrm;
+  }
+
+  window.addEventListener("message",listener, true);
+  var c = addToFrame(document);
+  console.log('Recursively added listener to main window and', c, 'frames');
+
+	</script>

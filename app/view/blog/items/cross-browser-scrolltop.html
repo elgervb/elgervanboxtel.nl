@@ -1,0 +1,20 @@
+
+<div class="snippet">
+  <h1> Cross browser scrollTop </h1>
+
+  <p>Detect when the user scrolls in the browser and act on it...</p>
+
+<pre><code class="javascript">
+  window.onscroll = function(){
+    var scrollTop = (document.documentElement &amp;&amp; document.documentElement.scrollTop) || document.body.scrollTop;
+    if (scrollTop){
+      // do something here
+    }
+    else{
+       // do something here
+    }
+  }
+</code></pre>
+
+
+</div>
