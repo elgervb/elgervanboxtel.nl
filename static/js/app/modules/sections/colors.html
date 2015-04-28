@@ -1,0 +1,44 @@
+
+  <h1 class="page-title"> 
+    Colour palette
+  </h1>
+
+  <h2 class="sub-title">
+    Main colours
+  </h2>
+
+  <div class="content">
+    <ul class="color-list">
+      <li ng-repeat="(index, color) in colors_primary" class="color-item">
+        <div class="example" ng-style="{'background-color':'{{color.code}}'}">
+          <div class="slide-in">{{color.code}}</div>
+        </div>
+
+        <p class="color-title" ng-style="{'color': '{{color.code}}'}">{{color.name}}</p>
+
+        <ul>
+          <li>
+            <span class="label">Hex</span>
+            <span class="value">{{color.code}}</span>
+          </li>
+          <li>
+            <span class="label">RGB</span>
+            <span class="value">{{color.code | hex2rgbFilter}}</span>
+          </li>
+          <li>
+            <span class="label">CMYK</span>
+            <span class="value">{{color.code | hex2cmykFilter}}</span>
+          </li>
+          <li>
+            <span class="label">HSL</span>
+            <span class="value">{{color.code | hex2hslFilter}}</span>
+          </li>
+          <li>
+            <span class="label">Sass</span>
+            <span class="value">${{color.sass}}</span>
+          </li>
+        </ul>
+
+      </li>
+    </ul>
+  </div>
