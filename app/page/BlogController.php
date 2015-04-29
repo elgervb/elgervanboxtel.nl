@@ -3,6 +3,7 @@ namespace app\page;
 
 use compact\mvvm\impl\ViewModel;
 use compact\Context;
+use classes\NestedView;
 class BlogController 
 {
     /**
@@ -10,7 +11,10 @@ class BlogController
      */
     public function index(){
 
-        return new ViewModel('blog/index.html');
+        return new NestedView(
+            new ViewModel('blog/layout/header.html'),  
+            new ViewModel('blog/index.html') 
+        );
     }
     
     public function item($item){
