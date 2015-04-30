@@ -5,12 +5,15 @@ use compact\mvvm\IView;
 
 class NestedView implements IView
 {
+    private $mainView;
     private $views;
-    public function __construct($views)
+    
+    public function __construct( $views )
     {
     	$this->views = new \ArrayObject();
     	
     	$args = func_get_args();
+    	$this->mainView =  array_shift($args);
     	foreach ($args as $arg){
     	    if ($arg instanceof IView){
     	        $this->add($arg);
@@ -22,12 +25,14 @@ class NestedView implements IView
         $this->views->append($view);
         return $this;
     }
+    
     public function render()
     {
     	$result = "";
     	foreach ($this->views as $view){
     	    $result .= $view->render();
     	}
-    	return $result;
+    	$this->mainView->{"body"} = $result;
+    	return $this->mainView->render();
     }
 }
