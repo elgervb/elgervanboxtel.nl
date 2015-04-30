@@ -12,12 +12,18 @@ class BlogController
     public function index(){
 
         return new NestedView(
+            new ViewModel('blog/layout/index.html'),
             new ViewModel('blog/layout/header.html'),  
             new ViewModel('blog/index.html') 
         );
     }
     
     public function item($item){
-        return new ViewModel('blog/items/'.$item.'.html');
+        return new NestedView(
+            new ViewModel('blog/layout/index.html'),
+            new ViewModel('blog/layout/header.html'),
+            new ViewModel('blog/items/'.$item.'.html')
+        );
+        
     }
 }
