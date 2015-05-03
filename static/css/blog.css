@@ -1,3 +1,6 @@
+/**
+ * Colors
+ */
 body {
   background-color: #EAEAEA;
   height: 100%; }
@@ -27,6 +30,8 @@ body {
     font-weight: 200;
     position: absolute;
     width: 25%; }
+    .item-navigation .previous:hover, .item-navigation .next:hover {
+      border-bottom: 1px solid #3498db; }
   .item-navigation .previous {
     left: 5%;
     text-align: left; }

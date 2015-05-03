@@ -6,6 +6,7 @@ use compact\Context;
 use compact\routing\Router;
 use app\page\IndexController;
 use app\page\BlogController;
+use compact\mvvm\impl\ViewModel;
 
 class AppContext implements IAppContext
 {
@@ -26,11 +27,19 @@ class AppContext implements IAppContext
 	        $c = new BlogController();
 	        return $c->item($item);
 	    });
+	    
+	    
+	    /**
+	     * Errors
+	     */
+	    $router->add(404, function(){
+	    	return new ViewModel('404.html');
+	    });
     }
 
     public function handlers(Context $ctx)
     {
-    	
+        
     }
 
     public function services(Context $ctx)

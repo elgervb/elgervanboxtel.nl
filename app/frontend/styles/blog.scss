@@ -1,3 +1,4 @@
+@import 'variables';
 
 body{
   background-color: #EAEAEA;
@@ -29,6 +30,10 @@ body{
     font-weight: 200;
     position: absolute;
     width: 25%;
+
+    &:hover{
+      border-bottom: 1px solid $blue-regular;
+    }
   }
   .previous{
     left: 5%;
