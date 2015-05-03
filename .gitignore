@@ -42,3 +42,5 @@ Network Trash Folder
 Temporary Items
 .apdisk
 node_modules/*
+static/reports/README.md.html
+static/reports/index.html
