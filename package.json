@@ -23,7 +23,7 @@
     "email": "elgervb@gmail.com"
   },
   "settings": {
-    "src": "./frontend/",
+    "src": "./app/frontend/",
     "dist": "./static/",
     "reports": "./static/reports/",
     "serverport": 4000
