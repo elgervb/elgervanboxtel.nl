@@ -102,15 +102,15 @@ gulp.task('copy-template', function() {
     .pipe(cache(gulp.dest('dist/js/app')));
 });
 
-///**
-// * Task for copying index page only. Optionally add live reload script to it
-// */
-//gulp.task('copy-index', function() {
-//   // copy the index.html
-//   return gulp.src(settings.src + 'index.html')
-//    .pipe(gulpif(settings.liveReload, replace(/(\<\/body\>)/g, "<script>document.write('<script src=\"http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1\"></' + 'script>')</script>$1")))
-//    .pipe(cache(gulp.dest(settings.dist)));
-//});
+/**
+* Task for copying index page only. Optionally add live reload script to it
+*/
+gulp.task('copy-index', function() {
+  // copy the index.html
+  return gulp.src(settings.src + 'index.html')
+   .pipe(gulpif(settings.liveReload, replace(/(\<\/body\>)/g, "<script>document.write('<script src=\"http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1\"></' + 'script>')</script>$1")))
+   .pipe(cache(gulp.dest(settings.dist)));
+});
 
 
 /**
