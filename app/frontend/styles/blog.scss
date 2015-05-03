@@ -44,3 +44,41 @@ body{
     text-align: right;
   }
 }
+
+.blog-overview{
+  article{
+    padding-bottom: 1em;
+    padding-left: 140px;
+    position: relative;
+  }
+  h2 a{
+    color: $dark-regular;
+
+    &:hover{
+      border-bottom: 1px solid $dark-regular;
+    }
+  }
+  .post-date{
+    border-bottom: 1px solid #999;
+    position: absolute;
+    left: 0;
+    width: 100px;
+
+    @extend .clearfix;
+
+    .day{
+      float: right;
+      font-size: 3em;
+      line-height: 1;
+      padding: 0;
+    }
+    .month{
+      color: $grey-dark;
+      padding: 0;
+    }
+    .year{
+      color: $grey-dark;
+      padding: 0;
+    }
+  }
+}
