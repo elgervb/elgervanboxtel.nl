@@ -1,0 +1,41 @@
+
+.page-title{
+  color: $grey-dark;
+  counter-reset: section;
+  font-size: 3em;
+  font-weight: 400;
+  margin: 0 0 2rem;
+  padding: 2rem 0;
+  text-transform: uppercase;
+}
+
+.sub-title{
+  color: $grey-dark;
+  font-size: 1.6em;
+  font-weight: 400;
+  margin: 30px 0;
+  position: relative;
+
+  // counter
+  &:before {
+    box-sizing: border-box;
+    color: $grey-dark;
+    content: counter(section, decimal)".";
+    counter-increment: section;
+    font-size: 1em;
+    margin-right: 40px;
+  }
+}
+
+.content{
+  padding: 0 40px;
+}
+
+.visual-row{
+  
+  [class*='col-']{
+    border: 1px solid $grey-semi-dark;
+    padding: 1rem;
+    text-align: center;
+  }
+}

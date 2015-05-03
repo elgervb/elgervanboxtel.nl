@@ -1,0 +1,69 @@
+
+
+.color-list{
+
+  .color-item{
+    display: inline-block;
+    max-width: 287px;
+    min-width: 250px;
+    overflow: hidden;
+    padding: 1rem;
+    position: relative;
+    width: 20%;
+
+    .color-title{
+      font-size: 1.4em;
+      font-weight: 600;
+      text-align: center;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+    }
+    .label{
+      color: $grey-dark;
+      display: inline-block;
+      width: 4em;
+    }
+    .value{
+      display: block;
+      float: right;
+      overflow: hidden;
+      text-align: right;
+    }
+  }
+
+  .example{
+    border-radius: 50%;
+    box-shadow: 0 0 2px rgba(0,0,0,.3);
+    height: 150px;
+    margin: 0 auto 1rem;
+    position: relative;
+    width: 150px;
+    transition: all .3s ease-in .3s;
+    z-index: 998;
+
+    .slide-in{
+      color: $font-color-light;
+      font-size: 2em;
+      font-weight: 600;
+      height: 100%;
+      transform: translateY(200%);
+      text-align: center;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+      transition: all .6s ease-in 0s;
+      visibility: hidden;
+      opacity: 0;
+      z-index: 999;
+    }
+
+    &:hover{
+      transform: scale(5, 5);
+      transition: all .3s ease-in .3s;
+
+      .slide-in{
+        opacity: 1;
+        transform: scale(.2,.2) translateY(50%);
+        transition: all .3s ease-in .3s;
+        visibility: visible;
+      }
+    }
+  }
+}
