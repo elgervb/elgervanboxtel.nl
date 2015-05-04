@@ -45,3 +45,4 @@ node_modules/*
 static/reports/README.md.html
 static/reports/index.html
 *.log
+static/reports/*
