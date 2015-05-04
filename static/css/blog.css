@@ -24,9 +24,11 @@
       padding: 0; }
     .blog-list .post-date .month {
       color: #666666;
+      display: block;
       padding: 0; }
     .blog-list .post-date .year {
       color: #666666;
+      display: block;
       padding: 0; }
   .blog-list h2 a {
     color: #333333; }

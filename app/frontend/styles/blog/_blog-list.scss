@@ -27,10 +27,12 @@
     }
     .month{
       color: $grey-dark;
+      display: block;
       padding: 0;
     }
     .year{
       color: $grey-dark;
+      display: block;
       padding: 0;
     }
   }
