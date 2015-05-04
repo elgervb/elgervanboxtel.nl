@@ -18,6 +18,7 @@
     left: 0;
     width: 100px; }
     .blog-list .post-date .day {
+      color: #666666;
       float: right;
       font-size: 3em;
       line-height: 1;
