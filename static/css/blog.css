@@ -45,6 +45,8 @@
   padding: 48px 4% 48px 5%;
   position: relative;
   width: 80%; }
+  .blog-post .title {
+    font-size: 4em; }
 
 .image-placeholder {
   border-bottom: 1px solid #d3d3d3;
