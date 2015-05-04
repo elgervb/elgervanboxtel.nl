@@ -28,8 +28,7 @@ body {
     display: block;
     font-size: 1.2em;
     font-weight: 200;
-    position: absolute;
-    width: 25%; }
+    position: absolute; }
     .item-navigation .previous:hover, .item-navigation .next:hover {
       border-bottom: 1px solid #3498db; }
   .item-navigation .previous {
