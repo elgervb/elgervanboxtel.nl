@@ -1,17 +1,11 @@
 @import 'variables';
 @import 'blog/variables-blog';
+
 @import 'blog/blog-list';
 @import 'blog/blog-post';
+@import 'blog/blog-header';
 
 body{
   background-color: $background-color-dark;
   height: 100%
-}
-.blog-header{
-  max-width: 370px;
-  min-height: 100%;
-  padding: 48px 20px;
-  position: absolute;
-  right: 0;
-  width: 20%;
 }
