@@ -7,7 +7,7 @@
   min-height: 100%;
   padding: 48px 4% 48px 5%;
   position: relative;
-  width: 80%; }
+  width: 75%; }
   .blog-list article {
     padding-bottom: 1em;
     padding-left: 140px;
@@ -72,14 +72,15 @@
     right: 4%;
     text-align: right; }
 
-body {
-  background-color: #EAEAEA;
-  height: 100%; }
-
 .blog-header {
-  max-width: 370px;
+  max-width: 470px;
   min-height: 100%;
   padding: 48px 20px;
   position: absolute;
   right: 0;
-  width: 20%; }
+  text-align: center;
+  width: 25%; }
+
+body {
+  background-color: #EAEAEA;
+  height: 100%; }

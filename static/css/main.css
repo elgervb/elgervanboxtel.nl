@@ -1152,35 +1152,32 @@ h6 {
   height: 48px;
   font-size: 0;
   text-indent: -9999px; }
+  .icon.round {
+    border-radius: 50%; }
 
 .icon-slide {
   position: relative; }
-
-.icon-slide::before, .icon-slide::after {
-  display: block;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: url("../img/icons/social/socials.png");
-  background-image: url("../img/icons/social/socials.svg"), none;
-  background-size: cover;
-  content: "";
-  -webkit-transition: left 0.3s;
-          transition: left 0.3s; }
-
-.icon-slide::before {
-  left: 0;
-  background-color: #999999; }
-
-.icon-slide::after {
-  left: -100%; }
-
-.icon-slide:hover::before {
-  left: 100%; }
-
-.icon-slide:hover::after {
-  left: 0; }
+  .icon-slide::before, .icon-slide::after {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../img/icons/social/socials.png");
+    background-image: url("../img/icons/social/socials.svg"), none;
+    background-size: cover;
+    content: "";
+    -webkit-transition: left 0.3s;
+            transition: left 0.3s; }
+  .icon-slide::before {
+    left: 0;
+    background-color: #999999; }
+  .icon-slide::after {
+    left: -100%; }
+  .icon-slide:hover::before {
+    left: 100%; }
+  .icon-slide:hover::after {
+    left: 0; }
 
 /* facebook */
 .icon-slide.facebook::before, .icon-slide.facebook::after {

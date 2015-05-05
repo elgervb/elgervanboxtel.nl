@@ -7,41 +7,44 @@
   height: 48px;
   font-size: 0;
   text-indent: -9999px;
+
+  &.round{
+    border-radius: 50%;
+  }
 }
 .icon-slide {
   position: relative;
+
+  &::before, &::after {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../img/icons/social/socials.png");
+    background-image: url("../img/icons/social/socials.svg"), none;
+    background-size: cover;
+    content: "";
+    transition: left 0.3s;
+  }
+  &::before {
+    left: 0;
+    background-color: #999999;
+  }
+
+  &::after {
+    left: -100%;
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
+
+  &:hover::after {
+    left: 0;
+  }
 }
 
-.icon-slide::before,
-.icon-slide::after {
-  display: block;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: url("../img/icons/social/socials.png");
-  background-image: url("../img/icons/social/socials.svg"), none;
-  background-size: cover;
-  content: "";
-  transition: left 0.3s;
-}
-
-.icon-slide::before {
-  left: 0;
-  background-color: #999999;
-}
-
-.icon-slide::after {
-  left: -100%;
-}
-
-.icon-slide:hover::before {
-  left: 100%;
-}
-
-.icon-slide:hover::after {
-  left: 0;
-}
 
 /* facebook */
 .icon-slide.facebook::before,
