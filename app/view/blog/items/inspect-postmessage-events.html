@@ -46,7 +46,7 @@ console.log('Recursively added listener to main window and', c, 'frames');
 		<button href="#" id="send-message" class="btn-flat-blue">Send message</button>
 	</p>
 
-	<p>Watch the console ;-)</p>
+	<p class="watch-console">Watch the console ;-)</p>
 
 
   <div class="item-navigation">
@@ -59,6 +59,7 @@ console.log('Recursively added listener to main window and', c, 'frames');
 	<script>
 		document.getElementById('send-message').addEventListener('click', function(e){
 			e.preventDefault();
+      document.querySelector('.watch-console').style.display = 'block';
 			window.postMessage(document.querySelector('.message').value, window.location.origin ); //
 		});
 
