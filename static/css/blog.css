@@ -72,6 +72,22 @@
     right: 4%;
     text-align: right; }
 
+.code-block {
+  background: #eeeeee;
+  display: block;
+  margin-bottom: 2rem;
+  padding: 2em .5em; }
+
+/*
+ * post specific
+ */
+.watch-console {
+  display: none; }
+
+.add-ons-list img {
+  height: 1em;
+  margin-right: 1rem; }
+
 .blog-header {
   max-width: 470px;
   min-height: 100%;
