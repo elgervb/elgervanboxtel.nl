@@ -43,7 +43,12 @@
     text-align: right;
   }
 }
-
+.code-block{
+  background: $grey-regular;
+  display: block;
+  margin-bottom: 2rem;
+  padding: 2em .5em;
+}
 .watch-console{
   display: none;
 }
