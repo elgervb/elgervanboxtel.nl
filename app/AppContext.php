@@ -14,8 +14,8 @@ class AppContext implements IAppContext
     public function routes(Router $router)
     {
     	$router->add("^/$", function(){
-    	    $c = new IndexController();
-    		return $c->index();
+    	    $c = new BlogController();
+            return $c->index();
     	});
     	
     	$router->add("^/blog$", function(){
@@ -39,7 +39,10 @@ class AppContext implements IAppContext
 
     public function handlers(Context $ctx)
     {
-        
+    	// make the initial call to rewrite site url, strip off the elgervanboxtel.nl part in the path
+    	Context::siteUrl(function($url){
+    		return preg_replace("/(.*:\/\/.*)\/(elgervanboxtel\.nl)/i", "$1/blog", $url);
+    	});
     }
 
     public function services(Context $ctx)
