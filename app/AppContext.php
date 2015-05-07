@@ -39,10 +39,12 @@ class AppContext implements IAppContext
 
     public function handlers(Context $ctx)
     {
+    	if (!Context::get()->isLocal()){
     	// make the initial call to rewrite site url, strip off the elgervanboxtel.nl part in the path
     	Context::siteUrl(function($url){
     		return preg_replace("/(.*:\/\/.*)\/(elgervanboxtel\.nl)/i", "$1/blog", $url);
     	});
+    	}
     }
 
     public function services(Context $ctx)
