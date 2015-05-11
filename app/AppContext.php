@@ -25,7 +25,7 @@ class AppContext implements IAppContext
     	
 	    $router->add("^/blog/([a-zA-Z0-9_-]+)$", function($item){
 	        $c = new BlogController();
-	        return $c->item($item);
+	        return $c->post($item);
 	    });
 	    
 	    
