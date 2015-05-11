@@ -19,7 +19,7 @@
   	<img src="{siteurl}/static/img/blog/postmessage.png" alt="Screenshot PostMessage in FireBug" />
   </p>
 
-<pre class="spacer"><code class="javascript">var listener = function(e){
+<code class="code-block">var listener = function(e){
   console.log('Caught ',e.type,' event from ',e.source.self, ' to ', e.target, ' origin ', e.origin, ' with data ', e.data, '. Full details: ', e);
 };
 
@@ -36,7 +36,7 @@ function addToFrame(el){
 window.addEventListener("message",listener, true);
 var c = addToFrame(document);
 console.log('Recursively added listener to main window and', c, 'frames');
-</code></pre>
+</code>
 
 
 	<h2> Demo </h2>

@@ -4,14 +4,14 @@
 
   <p>Create a random GUID</p>
 
-<pre><code class="javascript">
+<code class="code-block">
   function createGUID(){
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
       var r = Math.random()*16|0, v = c === 'x' ? r : (r&amp;0x3|0x8);
       return v.toString(16);
     });
   }
-</code></pre>
+</code>
 
   <p>Outputs something like: <code class="guid">76df96d9-941f-43ca-8d23-0f3ef30d1eb6</code></p>
 

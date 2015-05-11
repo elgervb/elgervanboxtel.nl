@@ -2,7 +2,7 @@
 <div class="blog-post snippet">
   <h1 class="title"> Simulate a keydown using Javascript </h1>
 
-<pre><code class="javascript">
+<code class="code-block">
   var e = new Event("keydown");
   e.key="a";    // just enter the char you want to send 
   e.keyCode=e.key.charCodeAt(0);
@@ -13,7 +13,7 @@
   e.metaKey=false;
   e.bubbles=true;
   document.dispatchEvent(e);
-</code></pre>
+</code>
 
   <p>Just set the <code>altKey</code>, <code>ctrlKey</code>, <code>shiftKey</code>, <code>metaKey</code> keys to <code>true</code> to enable it.</p>
 
