@@ -84,6 +84,11 @@ $bp-desktop : 1200px;
     @content;
   }
 }
+@mixin max-phone-landscape{
+  @media (max-width: #{$bp-phone-landscape}) {
+    @content;
+  }
+}
 @mixin max-small-tablet{
   @media (max-width: #{$bp-small-tablet}) {
     @content;
