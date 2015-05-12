@@ -6,6 +6,10 @@
   position: relative;
   width: 75%;
 
+  @include max-small-tablet{
+    width: 100%;
+  }
+
   article{
     padding-bottom: 1em;
     padding-left: 140px;
