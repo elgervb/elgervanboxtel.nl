@@ -15,7 +15,7 @@ class BlogController
     public function index(){
 
         return new NestedView(
-            new ViewModel('blog/layout/index.html', array('pagetitle'=>'Elger van Boxtel Personal Blog')),
+            new ViewModel('blog/layout/index.html', array('pagetitle'=>'Elger van Boxtel\'s Personal Blog')),
             new ViewModel('blog/layout/header.html'),  
             new ViewModel('blog/index.html') 
         );
