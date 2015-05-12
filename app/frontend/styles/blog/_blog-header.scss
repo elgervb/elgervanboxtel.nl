@@ -9,7 +9,7 @@
 
   @include max-small-tablet{
     max-width: none;
-    min-height: auto;
+    min-height: inherit;
     padding: 1em;
     position: static;
     width: 100%;
