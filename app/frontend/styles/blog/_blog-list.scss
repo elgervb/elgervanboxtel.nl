@@ -16,6 +16,9 @@
     position: relative;
 
     @include max-phone-landscape{
+      border-bottom: 1px dotted #999;
+      margin-bottom: 1em;
+      padding-bottom: 0;
       padding-left: 0;
     }
   }
@@ -45,7 +48,9 @@
       display: block;
       padding: 0;
     }
-
+    /**
+     * 
+     */
     @include max-phone-landscape{
       border-bottom: none;
       display: inline;
