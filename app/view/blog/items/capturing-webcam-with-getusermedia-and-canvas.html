@@ -6,10 +6,14 @@
 
   <p>Work in progress...</p>
 
+
+  <p>The <code>Navigator.getUserMedia()</code> lets you capture audio and video right from your browser. A cross browser implementation of this HTML5 API is available through the <code>JSWebcam</code> library. You can find it on <a href="https://github.com/elgervb/JSWebcam" target=_BLANK>GitHub</a>.</p>
+
+  
   <img src="{siteurl}/static/img/blog/capturing-webcam/browser-notification.png" alt="browser notification" />
 
 
-  <h2>Demo</h2>
+  <h2 class="subtitle">Demo</h2>
 
   <div>
     <button class="btn-red btn-webcam-start">Start webcam</button>
@@ -18,13 +22,77 @@
   </div>
   <div>
     <video id="video" autoplay class="hide"></video>
-    <img src="" class="image hide"></div>
+    <img src="" class="image hide" />
   </div>
+
+
+  <h2 class="subtitle">API</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>element</td>
+        <td>Returns the actual video HTMLElement</td>
+      </tr>
+      <tr>
+        <td>fallback</td>
+        <td>Fallback mechanism to select files. Use this when you want to take pics from a mobile device or upload pictures from disc</td>
+      </tr>
+      <tr>
+        <td>isStarted</td>
+        <td>Checks whether the webcam is started</td>
+      </tr>
+      <tr>
+        <td>isSupported</td>
+        <td>Checks whether or not the API is supported by the browser</td>
+      </tr>
+      <tr>
+        <td>start</td>
+        <td>Enables the webcam, will ask the user to share his webcam</td>
+      </tr>
+      <tr>
+        <td>stop</td>
+        <td>Stops the Webcam object</td>
+      </tr>
+      <tr>
+        <td>takePicture</td>
+        <td>Take a still image of the webcam, returns a Blob</td>
+      </tr>
+      <tr>
+        <td>uriToBlob</td>
+        <td>Takes in a dataUri and transforms it into a Blob</td>
+      </tr>
+      <tr>
+        <td>useFallback</td>
+        <td>Sets if a fallback mechanism should be in place to select files. Set this to true when you want to take pics from a mobile device or upload pictures from dics</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h2 class="subtitle"> Reference </h2>
+
+  <ul>
+    <li><a href="http://dev.w3.org/2011/webrtc/editor/archives/20140619/getusermedia.html">http://dev.w3.org/2011/webrtc/editor/archives/20140619/getusermedia.html</a></li>
+    <li><a href="http://dev.w3.org/2009/dap/camera/">http://dev.w3.org/2009/dap/camera/</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/NavigatorUserMedia.getUserMedia">https://developer.mozilla.org/en-US/docs/NavigatorUserMedia.getUserMedia</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/API/WebRTC">https://developer.mozilla.org/en-US/docs/Web/Guide/API/WebRTC</a></li>
+    <li><a href="http://www.html5rocks.com/en/tutorials/getusermedia/intro/">http://www.html5rocks.com/en/tutorials/getusermedia/intro/</a></li>
+  </ul>
+
+
 
   <div class="item-navigation">
     <a class="previous" href="{siteurl}/blog/sublime-text-exclude-folders">« previous</a>
     <a class="next" href="{siteurl}/blog">next »</a>
   </div>
+
   
 </div>
 
@@ -63,7 +131,7 @@
      */
     document.querySelector('.btn-webcam-stop').addEventListener('click', function(e){
       webcam.stop();
-      document.getElementById('video').classList.add('hide')
+      document.getElementById('video').classList.add('hide');
       document.querySelector('.btn-webcam-start').classList.remove('hide');
       document.querySelector('.btn-image').classList.add('hide');
       document.querySelector('.btn-webcam-stop').classList.add('hide');
