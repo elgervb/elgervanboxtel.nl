@@ -1,0 +1,46 @@
+<div class="blog-post snippet">
+  <h1 class="title"> Cleanup Google Analytics with .htaccess </h1>
+
+  <p>Lately I've been seeing lots of spam entries in my referal list in <a href="http://www.google.com/analytics" target=_BLANK title="Site Google Analytics">Google Analytics. </a>As this obviously clouds my results, I looked for a method to block these spammers. <br/>
+  One of these entries is <code>www.event-tracking.com</code>, which is know for it's referal spam: <a href="http://www.ohow.co/stop-www-event-tracking-com-referral-spam/" title="Ohow event-tracking.com referal spam article" target=_BLANK>http://www.ohow.co</a>. Leaving something like this in Google Analytics:</p>
+
+  <p>
+    <img src="{siteurl}/static/img/blog/google-analytics-referal-spam.png" alt="Referal spam by event tracking" />
+  </p>
+
+  <p>Forunately, we can use .htaccess to block files like this.</p>
+
+  <code class="code-block"><pre>
+    &lt;IfModule mod_rewrite.c&gt;
+      RewriteEngine On
+      RewriteCond %{HTTP_REFERER} ^https?://([^.]+\.)*domain1\.com [NC]
+      RewriteCond %{HTTP_REFERER} ^https?://([^.]+\.)*domain2\.com [NC]
+      RewriteRule .* - [F]
+    &lt;/IfModule&gt;</pre>
+  </code>
+
+  <p>This will make sure all domains listed in the mod_rewrite block will get a <code>403 - forbidden</code> when trying to request a page from your site. The <a href="http://httpd.apache.org/docs/2.4/rewrite/flags.html#flag_f" title="Apache rewrite rule flags" target=_BLANK>F option</a> in the rewrite rule makes sure of that.</p>
+
+  <p>Please take care when adding more domains, these are regular expressions. So when you use dots, like it domain.com, you always have to escape regular expression special characters with a slash \. domain.com must be domain\.com</p>
+
+  <p>In my case, I've blocked most referal spam successfully. My .htaccess file looks like:</p>
+
+  <code class="code-block"><pre>
+    &lt;IfModule mod_rewrite.c&gt;
+      # Block those nasty sites
+      RewriteCond % ^https?://([^.]+\.)*event-tracking\.com [NC]
+      RewriteCond % ^https?://([^.]+\.)*theguardlan\.com [NC]
+      RewriteCond % ^https?://([^.]+\.)*free-share-buttons\.com [NC]
+      RewriteCond % ^https?://([^.]+\.)*buy-cheap-online\.info [NC]
+      RewriteCond % ^https?://([^.]+\.)*googlsucks\.com [NC]
+      RewriteCond % ^https?://([^.]+\.)*fiverr\.com [NC]
+      RewriteRule .* - [F]
+    &lt;/IfModule&gt;</pre>
+  </code>
+
+  <div class="item-navigation">
+    <a class="previous" href="{siteurl}/blog/capturing-webcam-with-getusermedia-and-canvas">« previous</a>
+    <a class="next" href="{siteurl}/blog">next »</a>
+  </div>
+
+</script>
