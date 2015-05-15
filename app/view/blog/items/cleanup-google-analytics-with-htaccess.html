@@ -13,7 +13,7 @@
   <code class="code-block"><pre>
     &lt;IfModule mod_rewrite.c&gt;
       RewriteEngine On
-      RewriteCond %{HTTP_REFERER} ^https?://([^.]+\.)*domain1\.com [NC]
+      RewriteCond %{HTTP_REFERER} ^https?://([^.]+\.)*domain1\.com [NC,OR]
       RewriteCond %{HTTP_REFERER} ^https?://([^.]+\.)*domain2\.com [NC]
       RewriteRule .* - [F]
     &lt;/IfModule&gt;</pre>
@@ -28,11 +28,11 @@
   <code class="code-block"><pre>
     &lt;IfModule mod_rewrite.c&gt;
       # Block those nasty sites
-      RewriteCond % ^https?://([^.]+\.)*event-tracking\.com [NC]
-      RewriteCond % ^https?://([^.]+\.)*theguardlan\.com [NC]
-      RewriteCond % ^https?://([^.]+\.)*free-share-buttons\.com [NC]
-      RewriteCond % ^https?://([^.]+\.)*buy-cheap-online\.info [NC]
-      RewriteCond % ^https?://([^.]+\.)*googlsucks\.com [NC]
+      RewriteCond % ^https?://([^.]+\.)*event-tracking\.com [NC,OR]
+      RewriteCond % ^https?://([^.]+\.)*theguardlan\.com [NC,OR]
+      RewriteCond % ^https?://([^.]+\.)*free-share-buttons\.com [NC,OR]
+      RewriteCond % ^https?://([^.]+\.)*buy-cheap-online\.info [NC,OR]
+      RewriteCond % ^https?://([^.]+\.)*googlsucks\.com [NC,OR]
       RewriteCond % ^https?://([^.]+\.)*fiverr\.com [NC]
       RewriteRule .* - [F]
     &lt;/IfModule&gt;</pre>
