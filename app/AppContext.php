@@ -43,6 +43,10 @@ class AppContext implements IAppContext
 	    $router->add(404, function(){
 	    	return new ViewModel('404.html');
 	    });
+	    
+    	$router->add(500, function(){
+    		return new ViewModel('500.html');
+    	});
     }
 
     /**
