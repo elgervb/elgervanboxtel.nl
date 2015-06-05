@@ -8,9 +8,18 @@ use app\page\IndexController;
 use app\page\BlogController;
 use compact\mvvm\impl\ViewModel;
 
+/**
+ * The Application Context for elgervanboxtel.nl
+ * 
+ * @author eaboxt
+ */
 class AppContext implements IAppContext
 {
 
+	/**
+	 * (non-PHPdoc)
+	 * @see \compact\IAppContext::routes()
+	 */
     public function routes(Router $router)
     {
     	$router->add("^/$", function(){
@@ -28,7 +37,6 @@ class AppContext implements IAppContext
 	        return $c->post($item);
 	    });
 	    
-	    
 	    /**
 	     * Errors
 	     */
@@ -37,6 +45,10 @@ class AppContext implements IAppContext
 	    });
     }
 
+    /**
+     * (non-PHPdoc)
+     * @see \compact\IAppContext::handlers()
+     */
     public function handlers(Context $ctx)
     {
     	if (!Context::get()->isLocal()){
@@ -47,9 +59,12 @@ class AppContext implements IAppContext
     	}
     }
 
+    /**
+     * (non-PHPdoc)
+     * @see \compact\IAppContext::services()
+     */
     public function services(Context $ctx)
     {
-    	$path = $ctx->http()->getRequest()->getPathInfo();
-    	// TODO add layout service
+    	//
     }
 }
