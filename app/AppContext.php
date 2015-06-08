@@ -7,6 +7,7 @@ use compact\routing\Router;
 use app\page\IndexController;
 use app\page\BlogController;
 use compact\mvvm\impl\ViewModel;
+use compact\handler\impl\http\HttpStatus;
 
 /**
  * The Application Context for elgervanboxtel.nl
@@ -35,6 +36,10 @@ class AppContext implements IAppContext
 	    $router->add("^/blog/([a-zA-Z0-9_-]+)$", function($item){
 	        $c = new BlogController();
 	        return $c->post($item);
+	    });
+	    
+        $router->add("^/rss/?$", function(){
+            return new HttpStatus(HttpStatus::STATUS_404_NOT_FOUND, HttpStatus::STATUS_404_NOT_FOUND);
 	    });
 	    
 	    /**
