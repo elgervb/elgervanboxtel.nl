@@ -1,0 +1,94 @@
+
+<div class="blog-post">
+  <h1 class="title">Extending <code>XMLHttpRequest</code> with Promises</h1>
+
+  <p>When using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" title="XMLHttpRequest spec on MDN" target=_BLANK>XMLHttpRequest</a> to make Ajax calls to the server, it would be so nice to use it together with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" title="Promises spec on MDN" target=_BLANK>Promises</a>. This way you could do something similar to:</p>
+
+<code class="code-block">
+  &raquo; do a http request
+    &raquo; when finished, then do something with the result
+    &raquo; and then do someting else
+    &raquo; if one of the above fails, then catch the error
+</code>
+
+<h2>The Code</h2>
+
+<p>This <code>Request</code> object lets you make a promisified Ajax call to the server:</p>
+
+<code class="code-block">
+var Request = (function() {
+  var get = function(url){
+    return request('GET', url);
+  },
+  post = function(url){
+    return request('POST', url);
+  },
+  request = function(method, url) {
+    return new Promise(function (resolve, reject) {
+      var xhr = new XMLHttpRequest();
+      xhr.open(method, url);
+      xhr.onload = function(e){
+        if (xhr.status === 200) {
+          resolve(xhr);
+        } else {
+          reject(Error('XMLHttpRequest failed; error code:' + xhr.statusText));
+        }
+      },
+      xhr.onerror = reject;
+      xhr.send();
+    });
+  };
+
+  return {
+    get: get,
+    post: post,
+    request: request
+  }
+})();
+</code>
+
+  <h2>Everyting in one line</h2>
+
+<code class="code-block">
+var Request=function(){var a=function(a){return c("GET",a)},b=function(a){return c("POST",a)},c=function(a,b){return new Promise(function(c,d){var e=new XMLHttpRequest;e.open(a,b),e.onload=function(){200===e.status?c(e):d(Error("XMLHttpRequest failed; error code:"+e.statusText))},e.onerror=d,e.send()})};return{get:a,post:b,request:c}}();
+
+</code>
+
+  <h2>The Implementation</h2>
+
+  <p>This implementation lets you make an ajax request. Make sure you always add a catch handler for when the promise does not resolve, eg. the Ajax call fails</p>
+
+<code class="code-block">
+Request.get( 'http://google.com' )
+.then(function (e) {
+
+ return e.response.length;
+
+})
+.then(function (responseLength) {
+
+  // log response length
+  console.info(responseLength);
+ 
+  // throw an error
+  throw new Error("throw error");
+
+})
+.catch(function(e) { // e.target will have the original XHR object
+
+  console.log(e.type, "readystate:", e.target.readyState, e);
+
+});
+</code>
+
+  <p><b>Note</b>: <em>this will always end up in the catch clause, because Google does not allow cross origin ajax calls</em></p>
+
+  <div class="item-navigation">
+    <a class="previous" href="{siteurl}/blog/cleanup-google-analytics-with-htaccess">« previous</a>
+    <a class="next" href="{siteurl}/blog/">next »</a>
+  </div>
+
+</div>
+
+
+
