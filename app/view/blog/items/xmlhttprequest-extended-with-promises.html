@@ -59,7 +59,13 @@ var Request=function(){var a=function(a){return c("GET",a)},b=function(a){return
   <p>This implementation lets you make an ajax request. Make sure you always add a catch handler for when the promise does not resolve, eg. the Ajax call fails</p>
 
 <code class="code-block">
+<em></em>
 Request.get( 'http://google.com' )
+
+<em>// catch all XHR errors</em>
+.catch(function(e){
+  console.error( 'Network error while fetching ' );
+})
 .then(function (e) {
 
  return e.response.length;
@@ -67,21 +73,25 @@ Request.get( 'http://google.com' )
 })
 .then(function (responseLength) {
 
-  // log response length
+  <em>// log response length</em>
   console.info(responseLength);
  
-  // throw an error
+  <em>// throw an error</em>
   throw new Error("throw error");
 
 })
-.catch(function(e) { // e.target will have the original XHR object
-
-  console.log(e.type, "readystate:", e.target.readyState, e);
+<em>// catch all other errors</em>
+.catch(function(e) { 
+  
+  console.dir(e);
+  console.log(e.message, "readystate:", e);
 
 });
 </code>
 
   <p><b>Note</b>: <em>this will always end up in the catch clause, because Google does not allow cross origin ajax calls</em></p>
+
+  <p>For thesting purposes, you could make make a request to the current window, there you should have no trouble with CORS. Use the url: <code>window.location.href</code>.</p>
 
   <div class="item-navigation">
     <a class="previous" href="{siteurl}/blog/cleanup-google-analytics-with-htaccess">« previous</a>
