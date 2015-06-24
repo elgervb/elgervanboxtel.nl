@@ -26,6 +26,9 @@
   <h3>Reading Material</h3>
   <ul>
   	<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/notification" target=_BLANK>MDN Notifications API</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API" target=_BLANK>MDN Notifications API</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API/Using_the_Notifications_API" target=_BLANK>MDN Using the notifications API</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/Apps/Build/User_notifications/Notifying_users_via_the_Notification_and_Vibration" target=_BLANK>MDN Notifying users via the Notification and Vibration APIs</a></li>
   </ul>
 
   <div class="item-navigation">
@@ -75,6 +78,10 @@
             notification = new Notification(title, {body: message, icon: icon});
           }
         });
+      }
+      else {
+        console.log("This browser does not support notifications.");
+        alert("This browser does not support notifications.");
       }
     }
   }
