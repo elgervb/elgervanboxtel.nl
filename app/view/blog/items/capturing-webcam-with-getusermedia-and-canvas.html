@@ -101,6 +101,7 @@
   document.addEventListener('DOMContentLoaded', function () {
   
     var webcam = new Webcam('#video');
+    webcam.useFallback(true);
 
     /**
      * Start webcam
