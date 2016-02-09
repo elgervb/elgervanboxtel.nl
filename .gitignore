@@ -14,9 +14,6 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 
-# Windows shortcuts
-*.lnk
-
 # =========================
 # Operating System Files
 # =========================
@@ -27,6 +24,10 @@ $RECYCLE.BIN/
 .DS_Store
 .AppleDouble
 .LSOverride
+
+# Icon must end with two \r
+Icon
+
 
 # Thumbnails
 ._*
@@ -40,9 +41,13 @@ $RECYCLE.BIN/
 .AppleDesktop
 Network Trash Folder
 Temporary Items
-.apdisk
-node_modules/*
-static/reports/README.md.html
-static/reports/index.html
 *.log
-static/*
+.apdisk
+.sublime-gulp.cache
+.vscode/launch.json
+npm-debug.log
+dist/
+docs/*
+node_modules/*
+reports/*
+src/js/vendor/
