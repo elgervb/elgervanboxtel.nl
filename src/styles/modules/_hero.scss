@@ -1,0 +1,81 @@
+.hero {
+  color: #ffffff;
+  height: 100%;
+  padding: 0;
+  position: relative;
+  
+  transition: all 1s ease 0s;
+  
+  &.red {
+    background-image: linear-gradient(to right bottom, #D4145A 0%, #FBB03B 100%);
+  }
+  &.blue {
+    background-image: linear-gradient(to right bottom, #3498db 0%, #FBB03B 100%);
+  }
+  &.green {
+    background-image: linear-gradient(to right bottom, #2ecc71 0%, #FBB03B 100%);
+  }
+  .background-controls {
+    bottom: 1rem;
+    right: 1rem;
+    position: absolute;
+      
+    .background-control {
+      background-color: currentColor;
+      border-radius: 50%;
+      height: 1rem;
+      margin-left: .5rem;
+      opacity: .5;
+      transition: all .2s ease-out 0s;
+      width: 1rem;
+      
+      &.red {
+        color: #D4145A;
+      }
+      &.blue {
+        color: #3498db;
+      }
+      &.green {
+        color: #2ecc71;
+      }
+      &.active {
+        transform: scale(2);
+      }
+    }
+    
+    &:hover .background-control {
+      opacity: 1;
+      transform: scale(1);
+      
+       &.active {
+        transform: scale(1.5);
+      }
+    }
+  }
+  
+  .background {
+    background: transparent url(../img/pattern.png) repeat center center;
+    background-size: auto 450px;
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
+  }
+  
+  .title-container {
+    animation: fadeIn .5s ease-in .2s 1, 
+               slideInUp .5s ease-in .2s;
+    animation-fill-mode: forwards; // stay in last detected state (for opacity)
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    top: 40%;
+    width: 100%;
+    
+    .title {
+      font-size: 4.5825em;
+    }
+    .subtitle {
+      font-size: 1.825em;
+    }
+  }
+}

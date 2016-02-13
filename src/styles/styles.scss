@@ -7,34 +7,12 @@ html, body {
   padding: 3em 0;
   
   .title {
-    font-size: 2em;
+    font-size: 3em;
+    margin-bottom: 2rem;
     text-align: center;
   }
 }
-.hero {
-  background-image: linear-gradient(to right bottom, #D4145A 0%, #FBB03B 100%);
-  color: #ffffff;
-  height: 100%;
-  padding: 0;
-  position: relative;
-  
-  .background {
-    background: transparent url(../img/pattern.png) repeat center center;
-    background-size: auto 450px;
-    width: 100%;
-    height: 100%;
-    background-attachment: fixed;
-  }
-  
-  .title {
-    animation: fadeIn .5s ease-in .2s 1, 
-               slideInUp .5s ease-in .2s;
-    animation-fill-mode: forwards; // stay in last detected state (for opacity)
-    font-size: 4.5825em;
-    text-align: center;
-    opacity: 0;
-    position: absolute;
-    top: 40%;
-    width: 100%;
-  }
-}
+
+@import 'modules/hero';
+@import 'modules/projects';
+@import 'modules/buttons';
