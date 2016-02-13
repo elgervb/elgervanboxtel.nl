@@ -1,0 +1,23 @@
+.project {
+  .left {
+    perspective: 50em;
+    text-align: center;
+  }
+  .image {
+    transition: transform .3s ease-in 0s, box-shadow .3s ease-in .2s;
+    &:hover {
+      box-shadow: 0px 9px 10px -3px rgba(0,0,0,0.5);
+      transform: rotateX(7deg);
+    }
+  }
+  .title {
+    font-size: 2em;
+  }
+  .description {
+    font-size: 1.2em;
+    margin-bottom: 1.2em;
+  }
+  .button-group {
+    margin-top: 2em;
+  }
+}
